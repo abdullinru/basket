@@ -1,27 +1,31 @@
 package com.example.basket.Service;
 
+import com.example.basket.Repository.BasketRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
-import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
-@SessionScope
 public class BasketService {
 
-    public final List<Integer> basket = new ArrayList<>();
-    public void add(Integer id, Integer ... idProduct) {
-        basket.add(id);
+    public final BasketRepository basketRepository;
+
+    public BasketService(BasketRepository basketRepository) {
+        this.basketRepository = basketRepository;
+    }
+
+//    @PostConstruct
+//    public void setup () {
+//        System.out.println("service is created");
+//    }
+    public void add(Integer id) {
+        basketRepository.addProductToBasket(id);
         System.out.println("добавили продукт: " + id);
-        for (Integer integer : idProduct) {
-            basket.add(idProduct[id]);
-            System.out.println("добавили продукт: " + integer);
-        }
 
     }
     public List<Integer> get() {
-        return basket;
-
+        return basketRepository.getBasket();
     }
 }

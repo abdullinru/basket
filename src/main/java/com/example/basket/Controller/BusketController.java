@@ -19,13 +19,14 @@ public class BusketController {
     public BusketController(BasketService basketService) {
         this.basketService = basketService;
     }
+
     @GetMapping("/add")
     public void addProduct(@RequestParam(name = "id") Integer id) {
-        basketService.add(id);
+            basketService.add(id);
     }
+
     @GetMapping("/get")
     public List<Integer> getProduct() {
         return basketService.get();
-
     }
 }
