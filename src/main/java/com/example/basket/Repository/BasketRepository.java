@@ -1,5 +1,6 @@
 package com.example.basket.Repository;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -8,7 +9,7 @@ import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Component
 @SessionScope
 public class BasketRepository {
         public final List<Integer> basket = new ArrayList<>();

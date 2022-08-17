@@ -21,8 +21,8 @@ public class BusketController {
     }
 
     @GetMapping("/add")
-    public void addProduct(@RequestParam(name = "id") Integer id) {
-            basketService.add(id);
+    public void addProduct(@RequestParam("id") List<Integer> ids) {
+        ids.forEach(basketService::add);
     }
 
     @GetMapping("/get")
