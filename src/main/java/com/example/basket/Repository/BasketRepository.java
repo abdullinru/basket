@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@SessionScope
+@SessionScope // for each session creat new bean of BasketRepository
 public class BasketRepository {
         public final List<Integer> basket = new ArrayList<>();
 
-        @PostConstruct
+        @PostConstruct // method run after create bean BasketRepository
         public void setup () {
             System.out.println("basket is created");
         }
-        @PreDestroy
+        @PreDestroy // method run before destroy bean BasketRepository
         public void destroy () {
         System.out.println("basket is removed");
     }

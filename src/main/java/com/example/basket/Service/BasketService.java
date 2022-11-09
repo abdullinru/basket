@@ -12,14 +12,10 @@ public class BasketService {
 
     public final BasketRepository basketRepository;
 
+    // DA
     public BasketService(BasketRepository basketRepository) {
         this.basketRepository = basketRepository;
     }
-
-//    @PostConstruct
-//    public void setup () {
-//        System.out.println("service is created");
-//    }
     public void add(Integer id) {
         basketRepository.addProductToBasket(id);
         System.out.println("добавили продукт: " + id);
